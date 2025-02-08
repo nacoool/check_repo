@@ -64,6 +64,5 @@ def fixture1():
 @pytest.mark.parametirize("num1",[1,2])
 @pytest.mark.parametirize("num2",[3,4])
 def test_make_calc(fixture1, num2, num1):
-    import pdb; pdb.set_trace()
     assert True
     
