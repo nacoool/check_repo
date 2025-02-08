@@ -19,20 +19,23 @@ pipeline {
         }
 
         stage('Set Up Python') {
-            // Directly set up python
+            Directly set up python
             // steps {
             //     bat 'python -m venv venv'
-            //     bat 'venv\\Scripts\\activate.bat && pip install -r requirements.txt'
+            //     //bat 'venv\\Scripts\\activate.bat && pip install -r requirements.txt'
+            //     bat 'venv\\Scripts\\activate.bat'
             // }
             // Check if venv exist then skip else create.
             steps {
                 script {
                     def venvExists = fileExists('venv')  // 🔥 Check if 'venv' folder exists
                     if (!venvExists) {
-                        bat '''
-                        python -m venv venv
-                        venv\\Scripts\\activate.bat && pip install -r requirements.txt
-                        '''
+                        bat 'python -m venv venv'
+                        bat 'venv\\Scripts\\activate.bat'
+                        // bat '''
+                        // python -m venv venv
+                        // venv\\Scripts\\activate.bat && pip install -r requirements.txt
+                        // '''
                     } else {
                         echo "✅ Virtual environment already set up. Skipping this step."
                     }
