@@ -19,7 +19,7 @@ pipeline {
         }
 
         stage('Set Up Python') {
-            Directly set up python
+            //Directly set up python
             // steps {
             //     bat 'python -m venv venv'
             //     //bat 'venv\\Scripts\\activate.bat && pip install -r requirements.txt'
