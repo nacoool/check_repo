@@ -5,11 +5,11 @@ import pytest
 def fixture1():
     print("this is a fixture setup")
     count1 = 10
-    yield count1  # ✅ Corrected "yield"
+    yield count1  # Corrected "yield"
     print("this is a fixture teardown")
 
-@pytest.mark.parametrize("num2", [3, 4])  # ✅ Corrected "parametrize"
-@pytest.mark.parametrize("num1", [1, 2])  # ✅ Placed in correct order
+@pytest.mark.parametrize("num2", [3, 4])  #  Corrected "parametrize"
+@pytest.mark.parametrize("num1", [1, 2])  # Placed in correct order
 def test_make_calc(fixture1, num1, num2):
     import pdb; pdb.set_trace()
     print(f"fixture1: {fixture1}, num1: {num1}, num2: {num2}")
