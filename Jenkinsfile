@@ -44,19 +44,20 @@ pipeline {
                 bat 'venv\\Scripts\\activate.bat && pytest --junitxml=report.xml --html=report.html' //--junitxml=report.xml -> do not want xml report to be generated
             }
         }
-
-        post {
-            always {
-                junit 'report.xml'
-                publishHTML(target: [allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: '.',
-                    reportFiles: 'report.html',
-                    reportName: 'Test Report'
-                ])
-            }
-        }
-    
     }
+
+    post {
+        always {
+            junit 'report.xml'
+            publishHTML(target: [allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: '.',
+                reportFiles: 'report.html',
+                reportName: 'Test Report'
+            ])
+        }
+    }
+
 }
+// comment addition to learn rebase and squash
