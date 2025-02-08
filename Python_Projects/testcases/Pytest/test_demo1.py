@@ -61,8 +61,8 @@ def fixture1():
     yield count1
     print("this is a fixture teardown")
 
-@pytest.mark.parametirize("num1",[1,2])
-@pytest.mark.parametirize("num2",[3,4])
+@pytest.mark.parametrize("num1", [1, 2])
+@pytest.mark.parametrize("num2", [3, 4])
 def test_make_calc(fixture1, num2, num1):
     assert True
     
