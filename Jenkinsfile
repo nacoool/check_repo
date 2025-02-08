@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/nacoool/check_repo.git'  // ✅ Updated Repo URL
+                //git 'https://github.com/nacoool/check_repo.git'  // ✅ Updated Repo URL
+                git branch: 'main', url: 'https://github.com/nacoool/check_repo.git'
             }
         }
 
