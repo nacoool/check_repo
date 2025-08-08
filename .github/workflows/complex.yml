@@ -1,0 +1,41 @@
+name: Complex Workflow
+
+on:
+  push:
+    branches:
+      - action
+
+jobs:
+  Job1:
+    name: First Job
+    runs-on: ubuntu-latest
+    steps:
+    - name: step one
+      run: echo "First step"
+    - uses: actions/checkout@v3
+    - run: date
+  Job2:
+    name: Second Job
+    runs-on: windows-latest
+    steps:
+    - name: step two
+      run: echo "Second step"
+    - uses: actions/checkout@v3
+    - run: Get-Date
+  Job3:
+    name: Third Job
+    runs-on: macos-latest
+    steps:
+    - name: step three
+      run: echo "Third step"
+    - uses: actions/checkout@v3
+    - run: date
+  Job4:
+    name: Fourth Job
+    runs-on: ubuntu-latest
+    needs: [Job1, Job2, Job3]
+    steps:
+    - name: step four
+      run: echo "Fourth step"
+    - uses: actions/checkout@v3
+    - run: date
